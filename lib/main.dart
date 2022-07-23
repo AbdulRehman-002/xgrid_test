@@ -49,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: isDarkModeEnabled ? Colors.white : Colors.black,
         body: Padding(
           padding: EdgeInsets.symmetric(
               vertical: height(context) * 0.05,
@@ -67,9 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             isDarkModeEnabled = !isDarkModeEnabled;
                           });
                         },
-                        child: const Icon(
+                        child: Icon(
                           Icons.nightlight_outlined,
                           size: 30,
+                          color:
+                              isDarkModeEnabled ? Colors.black : Colors.white,
                         ),
                       ),
                     ],
@@ -177,13 +180,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.black),
-                    child: const ListTile(
+                        color: isDarkModeEnabled
+                            ? Colors.black
+                            : Color.fromARGB(255, 208, 212, 212)),
+                    child: ListTile(
                       title: Center(
                         child: Text(
                           "Logout",
-                          style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              color: isDarkModeEnabled
+                                  ? Colors.white
+                                  : Colors.black,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
