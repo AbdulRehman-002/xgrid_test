@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:day_night_switcher/day_night_switcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
       ),
       home: const MyHomePage(),
     );
@@ -38,6 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return MediaQuery.of(context).size.height;
   }
 
+  bool isDarkModeEnabled = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -53,10 +60,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
-                      Icon(
-                        Icons.nightlight_outlined,
-                        size: 30,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isDarkModeEnabled = !isDarkModeEnabled;
+                          });
+                        },
+                        child: const Icon(
+                          Icons.nightlight_outlined,
+                          size: 30,
+                        ),
                       ),
                     ],
                   ),
