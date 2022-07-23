@@ -96,10 +96,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     height: height(context) * 0.02,
                   ),
-                  const Text(
+                  Text(
                     "John Doe",
                     style: TextStyle(
-                        color: Colors.black,
+                        color: isDarkModeEnabled ? Colors.black : Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
