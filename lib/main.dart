@@ -196,7 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
           leading: leadingicon,
           title: Text(
             title,
-            style: const TextStyle(color: Colors.black),
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold),
           ),
           trailing: const Icon(
             Icons.arrow_forward_ios_outlined,
